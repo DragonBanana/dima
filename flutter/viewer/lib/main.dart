@@ -47,7 +47,7 @@ class Main extends StatelessWidget {
       children: [
         // In the column we have three subcomponents, which are:
         // A text, a textfield and a button
-        const Text("This is a simple button"),
+        const Text("Insert URLs and Press the button for WOW"),
         // In this textfield we insert the URLs
         TextField(
           controller: myController,
@@ -67,7 +67,7 @@ class Main extends StatelessWidget {
                       // e.g., "AlphaXBetaXGamma".split("X") returns ["Alpha", "Beta", "Gamma"]
                       myController.text.split("\n"),
                     )),
-            child: const Text("Show")),
+            child: const Text("Show me the WOW")),
       ],
     );
   }
@@ -104,7 +104,7 @@ class ImageDialog extends StatelessWidget {
         ...images,
         TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text("Ok")),
+            child: const Text("Enough WOW for now")),
       ],
     );
   }
