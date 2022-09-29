@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Image viewer',
       home: Scaffold(
         appBar: AppBar(title: const Text("Image viewer")),
         body: Main(),
