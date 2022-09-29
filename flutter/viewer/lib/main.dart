@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
 class Main extends StatelessWidget {
   // Controller of the textfield
   // It is needed to retrieve the text from the component
-  final myController = TextEditingController();
+  final myController = TextEditingController(text: "https://docs.flutter.dev/assets/images/dash/dash-fainting.gif");
   Main({Key? key}) : super(key: key);
 
   @override
@@ -47,12 +47,13 @@ class Main extends StatelessWidget {
       children: [
         // In the column we have three subcomponents, which are:
         // A text, a textfield and a button
-        const Text("Insert URLs and Press the button for WOW"),
+        const Text("Insert URLs and press the button for WOW"),
         // In this textfield we insert the URLs
         TextField(
           controller: myController,
-          decoration:
-              const InputDecoration(contentPadding: EdgeInsets.all(20.0)),
+          decoration: const InputDecoration(
+            contentPadding: EdgeInsets.all(20.0),
+          ),
           keyboardType: TextInputType.multiline,
           maxLines: null,
         ),
