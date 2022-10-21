@@ -24,18 +24,7 @@ class Calculator extends StatefulWidget {
   _CalculatorState createState() => _CalculatorState();
 }
 
-// Private class with private constructor
-// It can only be accessed from this file
 class _CalculatorState extends State<Calculator> {
-
-  int _result = 0;
-
-  // Private method
-  void _updateResult(result) {
-    setState(() {
-      _result = result;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,29 +34,79 @@ class _CalculatorState extends State<Calculator> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
+            // ignore: prefer_const_literals_to_create_immutables
             children: <Widget>[
-              Container(
-                  color: Colors.red,
-                  child: Center(
-                      child: Text('$_result',
-                          style: const TextStyle(
-                              fontSize: 40,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white)))),
+              ListenChangeNotifier(),
               Factorial(
-                // Pass callback
-                _updateResult,
               ),
               Power(
-                 _updateResult,
               )
             ]));
   }
 }
 
+// ChangeNotifier is a pattern of Flutter Provider
+// It should be use when we want to notify a change
+// in state that contains multiple values
+// When the state is composed by only one value
+// we can use ValueNotifier
+class ResultNotifier extends ChangeNotifier {
+  int _result = 0;
+
+  void setResult(result) {
+    _result = result;
+    notifyListeners();
+  }
+
+  int getResult() => _result;
+
+}
+
+class ListenChangeNotifier extends StatefulWidget {
+  const ListenChangeNotifier({Key? key}) : super(key: key);
+
+  @override
+  State<ListenChangeNotifier> createState() =>
+      _ListenChangeNotifierState();
+}
+
+ResultNotifier resultNotifier = ResultNotifier();
+
+class _ListenChangeNotifierState extends State<ListenChangeNotifier> {
+  @override
+  void initState() {
+    super.initState();
+    // mounted means object is currently in the widget tree
+    // Whenever the notifier calls "notifyListeners"
+    // all callbacks will be called
+    resultNotifier.addListener(() => mounted ? setState(() {}) : null);
+  }
+
+  @override
+  // "dispose" is a method that will be called
+  // when the widget is removed from the widget tree
+  void dispose() {
+    resultNotifier.removeListener(() {});
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+    color: Colors.red,
+    child: Center(
+        child: Text(resultNotifier.getResult().toString(),
+            style: const TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.w500,
+                color: Colors.white))));
+  }
+
+}
+
+
 class Factorial extends StatefulWidget {
-  final Function update;
-  const Factorial(this.update, {Key? key}) : super(key: key);
+  const Factorial({Key? key}) : super(key: key);
   
   @override
   _FactorialState createState() => _FactorialState();
@@ -87,7 +126,7 @@ class _FactorialState extends State<Factorial> {
       TextButton(
           style: buttonStyle,
           onPressed: () {
-              widget.update(factorial(int.parse(myController.text)));
+              resultNotifier.setResult(factorial(int.parse(myController.text)));
               myController.clear();
           }, 
           child: const Text("FACTORIAL"))
@@ -109,8 +148,7 @@ int power(a, b) {
 }
 
 class Power extends StatefulWidget {
-  final Function update;
-  const Power(this.update, {Key? key}) : super(key: key);
+  const Power({Key? key}) : super(key: key);
 
   @override
   _PowerState createState() => _PowerState();
@@ -152,10 +190,7 @@ class _PowerState extends State<Power> {
       TextButton(
           style: buttonStyle,
           onPressed: () {
-            // Widget is the a reference of the object StatefulWidget
-            // of this state
-            widget.update(power(
-                int.parse(baseController.text), int.parse(expController.text)));
+            resultNotifier.setResult(power(int.parse(baseController.text), int.parse(expController.text)));
             baseController.clear();
             expController.clear();
           },
