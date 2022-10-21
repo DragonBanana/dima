@@ -16,3 +16,9 @@ This lecture explains how to create and build stateless applications.
 It shows how to develop using Dart, the programming language of Flutter and the basic concepts of the framework.
 The lecture proposes three simple and small projects, namely [HelloWorld](flutter/helloworld), [Viewer](flutter/viewer) and [Login](flutter/login).
 Slides of the lecture can be found [here](Lecture_01.pdf).
+
+### Exercise Lecture 2 - Stateful Applications
+This lecture explains how to create and build stateful applications.
+It shows how to use Stateful widgets, how to manage the state and how the state can be passed between different widgtes.
+The lecture proposes three small projects, namely [Counter](flutter/counter), [Calculator](flutter/calculator) and [Calculator with Notifier](flutter/calculator_2).
+Slides of the lecture can be found [here](Lecture_02.pdf).
