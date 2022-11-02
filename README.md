@@ -19,6 +19,12 @@ Slides of the lecture can be found [here](Lecture_01.pdf).
 
 ### Exercise Lecture 2 - Stateful Applications
 This lecture explains how to create and build stateful applications.
-It shows how to use Stateful widgets, how to manage the state and how the state can be passed between different widgtes.
+It shows how to use Stateful widgets, how to manage the state and how the state can be passed between different widgets.
 The lecture proposes three small projects, namely [Counter](flutter/counter), [Calculator](flutter/calculator) and [Calculator with Notifier](flutter/calculator_2).
+Slides of the lecture can be found [here](Lecture_02.pdf).
+
+### Exercise Lecture 3 - Stateful Applications
+This lecture explains how to create and build stateful applications.
+It reports also examples of unit and widget testing.
+The lecture proposes one project, namely [Movies](flutter/movies).
 Slides of the lecture can be found [here](Lecture_02.pdf).
