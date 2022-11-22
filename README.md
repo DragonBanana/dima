@@ -27,7 +27,7 @@ Slides of the lecture can be found [here](Lecture_02.pdf).
 This lecture explains how to create and build stateful applications.
 It reports also examples of unit and widget testing.
 The lecture proposes one project, namely [Movies](flutter/movies).
-Slides of the lecture can be found [here](Lecture_02.pdf).
+Slides of the lecture can be found [here](Lecture_03.pdf).
 
 ### Requirements
 - [NodeJS](https://nodejs.org/en/download/)
@@ -36,8 +36,14 @@ Slides of the lecture can be found [here](Lecture_02.pdf).
 - A Text editor. I will use [Visual Studio Code](https://code.visualstudio.com/download)
 
 
-### Exercise Lecture 4 - React Native - Stateful Applications
+### Exercise Lecture 4 - React Native - Introduction
 This lecture explains how to create and build stateless and stateful applications.
 It shows how to develop using Javascript and React Native, and the basic concepts of the framework.
 The lecture proposes two simple and small projects, namely [HelloWorld](react/helloworld) and [Viewer](react/counter).
 Slides of the lecture can be found [here](Lecture_04.pdf).
+
+### Exercise Lecture 4 - React Native - Stateful Applications
+This lecture explains how to create and build stateful applications.
+It shows how to ,manage the state, and how the state can be passed between different widgets.
+The lecture proposes two small projects, namely [Calculator](react/calculator) and [Movies](react/movies).
+Slides of the lecture can be found [here](Lecture_05.pdf).
