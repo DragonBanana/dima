@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DimaCounter</string>
+    <string name="counter_text">0</string>
+    <string name="increase_text">+1</string>
+    <string name="reset_text">Reset</string>
+    <string name="total_text">Total</string>
+    <string name="total">0</string>
+</resources>
