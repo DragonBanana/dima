@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CounterCompose</string>
+    <string name="title_activity_result">ResultActivity</string>
+</resources>
